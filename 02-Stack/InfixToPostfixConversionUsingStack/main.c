@@ -42,7 +42,6 @@ void infixToPostfix(const char *infix, char *postfix);
 int precedence(char operator);
 bool isOperator(char c);
 
-
 int main(void){
 
     char infix[MAX_STR_SIZE];
@@ -164,7 +163,7 @@ void push(Stack *stack, char c){
 char pop(Stack *stack){
     if (isEmpty(stack)) {
         fprintf(stderr, "Stack is empty!\n");
-        exit(EXIT_FAILURE);
+        return '0';
     }
     return stack->data[stack->top--];
 }
@@ -173,7 +172,7 @@ char pop(Stack *stack){
 char peek(Stack *stack){
     if (isEmpty(stack)) {
         fprintf(stderr, "Stack is empty!\n");
-        exit(EXIT_FAILURE);
+        return '0';
     }
     return stack->data[stack->top];
 }
