@@ -38,7 +38,7 @@ int power(int base, int power);
 int main(void){
 
     char postfix[STR_SIZE];
-    printf("Please a enter postfix expression: ");
+    printf("Please enter a postfix expression: ");
     if ((fgets(postfix, STR_SIZE, stdin)) == NULL) {
         fprintf(stderr, "Failed to read input!\n");
         exit(EXIT_FAILURE);
