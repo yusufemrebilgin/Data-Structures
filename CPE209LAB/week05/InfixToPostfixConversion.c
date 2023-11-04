@@ -164,7 +164,7 @@ void push(Stack *stack, char c){
 char pop(Stack *stack){
     if (isEmpty(stack)) {
         fprintf(stderr, "Stack is empty!\n");
-        exit(EXIT_FAILURE);
+        return '0';
     }
     return stack->data[stack->top--];
 }
@@ -173,7 +173,7 @@ char pop(Stack *stack){
 char peek(Stack *stack){
     if (isEmpty(stack)) {
         fprintf(stderr, "Stack is empty!\n");
-        exit(EXIT_FAILURE);
+        return '0';
     }
     return stack->data[stack->top];
 }
