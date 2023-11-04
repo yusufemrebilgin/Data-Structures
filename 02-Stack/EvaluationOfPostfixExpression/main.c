@@ -38,10 +38,14 @@ int power(int base, int power);
 int main(void){
 
     char postfix[STR_SIZE];
+    printf("Please a enter postfix expression: ");
     if ((fgets(postfix, STR_SIZE, stdin)) == NULL) {
         fprintf(stderr, "Failed to read input!\n");
         exit(EXIT_FAILURE);
     }
+
+    // fgets fonksiyonu ile stringe eklenen '\n' karakterini kaldırma işlemi
+    postfix[strcspn(postfix,"\n")] = '\0';
 
     printf("The result is: %d\n", postfixEvaluation(postfix));
 
@@ -128,7 +132,7 @@ void push(Stack *stack, int value){
 int pop(Stack *stack){
     if (isEmpty(stack)) {
         fprintf(stderr, "Stack is empty!\n");
-        exit(EXIT_FAILURE);
+        return -1;
     }
     return stack->data[stack->top--];
 }
