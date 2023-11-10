@@ -110,8 +110,10 @@ Stack *createStack(size_t size){
             stack->size = size;
         }
         // 'stack->data' için bellek ayırma işlemi başarısız olursa 'stack' için ayrılan bellek serbest bırakılır
-        else
+        else {
             free(stack);
+            return NULL;
+        }
     }
     return stack;
 }
