@@ -77,7 +77,7 @@ void infixToPostfix(const char *infix, char *postfix){
     }
     
     // Döngü içinde kullanılacak değişkenlerin tanımlamaları
-    int i, j;
+    int i, j = 0;
     char token, current;
     for (i = 0; i < len; i++) {
         token = infix[i];
