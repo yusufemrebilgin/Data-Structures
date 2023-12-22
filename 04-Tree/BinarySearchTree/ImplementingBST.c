@@ -20,6 +20,7 @@ int sum(NodeBST *root);
 void preorder(NodeBST *root);
 void inorder(NodeBST *root);
 void postorder(NodeBST *root);
+void freeTree(NodeBST *root);
 
 int main(void){
 
@@ -116,6 +117,7 @@ int main(void){
                 exit(EXIT_SUCCESS);
             default:
                 printf("Invalid option. Please try again..\n");
+                freeTree(root);
                 break;
         }
         printf("\n");
@@ -145,6 +147,7 @@ NodeBST *insert(NodeBST *root, int data){
         root->left = insert(root->left, data);
     else if (data > root->data)
         root->right = insert(root->right, data);
+    return root;
 }
 
 NodeBST *delete(NodeBST *root, int data){
@@ -180,6 +183,7 @@ NodeBST *delete(NodeBST *root, int data){
         root->left = delete(root->left, data);
     else if (data > root->data)
         root->right = delete(root->right, data);
+    return root;
 }
 
 NodeBST *search(NodeBST *root, int data){
@@ -250,4 +254,11 @@ void postorder(NodeBST *root){
     postorder(root->left);
     postorder(root->right);
     printf("%d ", root->data);
+}
+
+void freeTree(NodeBST *root){
+    if (root == NULL) return;
+    freeTree(root->left);
+    freeTree(root->right);
+    free(root);
 }
