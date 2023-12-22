@@ -212,9 +212,8 @@ int height(NodeBST *root){
     if (root == NULL)
         return -1;
     else {
-        int leftHeight, rightHeight;
-        leftHeight = height(root->left);
-        rightHeight = height(root->right);
+        int leftHeight  = height(root->left);
+        int rightHeight = height(root->right);
         if (rightHeight > leftHeight)
             return rightHeight + 1;
         else
