@@ -36,6 +36,8 @@ int main(void){
     printf("Queue front: %d\n", queue->front->data);
     printf("Queue rear:  %d\n", queue->rear->data);
 
+    freeQueue(queue);
+
     return 0;
 }
 
