@@ -135,14 +135,15 @@ NodeBST *createNode(int data){
 }
 
 NodeBST *insert(NodeBST *root, int data){
-    NodeBST *newNode = createNode(data);
-    if (newNode == NULL) {
-        fprintf(stderr, "Memory allocation failed!");
-        exit(EXIT_FAILURE);
-    }
-
-    if (root == NULL)
+    
+    if (root == NULL) {
+        NodeBST *newNode = createNode(data);
+        if (newNode == NULL) {
+            fprintf(stderr, "Memory allocation failed!");
+            exit(EXIT_FAILURE);
+        }
         return newNode;
+    }
     else if (data < root->data)
         root->left = insert(root->left, data);
     else if (data > root->data)
