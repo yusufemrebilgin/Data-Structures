@@ -111,15 +111,16 @@ AVLTreeNode *rightRotate(AVLTreeNode *root){
 }
 
 AVLTreeNode *insert(AVLTreeNode *root, const char *str){
-    AVLTreeNode *newNode = createNode(str);
-    // Bellek ayırma işlemi başarısızsa hata mesajı yazdır ve programı sonlandır
-    if (newNode == NULL) {
-        fprintf(stderr, "Memory allocation failed!");
-        exit(EXIT_FAILURE);
-    }
 
-    if (root == NULL)
+    if (root == NULL) {
+        AVLTreeNode *newNode = createNode(str);
+        // Bellek ayırma işlemi başarısızsa hata mesajı yazdır ve programı sonlandır
+        if (newNode == NULL) {
+            fprintf(stderr, "Memory allocation failed!");
+            exit(EXIT_FAILURE);
+        }
         return newNode;
+    }
     else if (compareStrings(str, root->str) < 0)
         root->left = insert(root->left, str);
     else if (compareStrings(str, root->str) > 0)
