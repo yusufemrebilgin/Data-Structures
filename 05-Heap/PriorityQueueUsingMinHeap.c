@@ -3,11 +3,11 @@
 #include <limits.h>
 
 /*
-Mapping:
-    if node index is i: (assuming root is zero)
-    parent(i):  [(i - 1) / 2] (floor)
-    left(i):    2 * i + 1
-    right(i):   2 * i + 2
+    Mapping:
+    if node index is i: (assuming root index is zero)
+        (i-1) / 2   gives the parent index
+        2 * i + 1   gives the left child index
+        2 * i + 2   gives the right child index
 */
 
 typedef struct {
