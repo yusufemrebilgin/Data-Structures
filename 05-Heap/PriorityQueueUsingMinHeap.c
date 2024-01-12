@@ -83,7 +83,7 @@ int dequeue(PriorityQueue *queue){
 }
 
 void freePriorityQueue(PriorityQueue **queue){
-    if (queue != NULL) {
+    if (*queue != NULL) {
         free((*queue)->arr);
         free(*queue);
         *queue = NULL;
